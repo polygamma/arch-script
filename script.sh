@@ -4,16 +4,6 @@
 sudo sh -c "sed -i '/\[multilib\]/,/Include/s/^[ ]*#//' /etc/pacman.conf"
 sudo pacman -Syy
 
-# xorg + gnome
-sudo pacman --needed --noconfirm -Syu xorg-server gnome gdm
-sudo systemctl enable gdm
-
-# nvidia
-sudo pacman --needed --noconfirm -Syu nvidia-dkms lib32-nvidia-utils dkms linux-headers nvidia-settings
-
-# intel
-sudo pacman --needed --noconfirm -Syu mesa lib32-mesa xf86-video-intel
-
 # pacaur
 sudo pacman --needed --noconfirm -Syu git
 gpg --keyserver hkp://ipv4.pool.sks-keyservers.net:11371 --recv-keys 1EB2638FF56C0C53
@@ -29,7 +19,7 @@ sudo rm -r pacaur/
 sudo rm -r cower/
 
 # makepkg
-pacaur --needed --noconfirm -Syu ccache
+pacaur --needed --noconfirm --noedit -Syu ccache
 sudo sh -c "sed -i '/^[ ]*BUILDENV=/s/!ccache/ccache/' /etc/makepkg.conf"
 grep "^[ ]*export PATH=\"/usr/lib/ccache/bin/:\$PATH\"" ~/.bashrc >/dev/null
 if [ "$?" -eq 1 ]
@@ -40,9 +30,19 @@ sudo sh -c "sed -i '/MAKEFLAGS=/s/^.*$/MAKEFLAGS=\"-j\$(nproc)\"/' /etc/makepkg.
 sudo sh -c "sed -i '/PKGEXT=/s/^.*$/PKGEXT=\".pkg.tar\"/' /etc/makepkg.conf"
 
 # mirrors
-pacaur --needed --noconfirm -Syu reflector
+pacaur --needed --noconfirm --noedit -Syu reflector
 sudo reflector --save /etc/pacman.d/mirrorlist --sort rate --age 1 --country Germany --latest 10 --score 10 --number 5 --protocol http
-pacaur --noconfirm -Syyu
+pacaur --noconfirm --noedit -Syyu
+
+# xorg + gnome
+pacaur --needed --noconfirm --noedit -Syu xorg-server gnome gdm
+sudo systemctl enable gdm
+
+# nvidia
+pacaur --needed --noconfirm --noedit -Syu nvidia-dkms lib32-nvidia-utils dkms linux-headers nvidia-settings
+
+# intel
+pacaur --needed --noconfirm --noedit -Syu mesa lib32-mesa xf86-video-intel
 
 # disable ip_v6
 interfaces=$(ip link | sed -n "/^[0-9]\+: \(ens\|eno\|enp\|wl\)[a-zA-Z0-9]\+:.*$/s/^[0-9]\+: \([a-zA-Z0-9]\+\):.*$/\1/p")
@@ -77,7 +77,7 @@ then
 fi
 
 # mouse acceleration disabled with libinput
-pacaur --needed --noconfirm -Syu libinput xf86-input-libinput xorg-xinput
+pacaur --needed --noconfirm --noedit -Syu libinput xf86-input-libinput xorg-xinput
 sudo sh -c "echo 'Section \"InputClass\"
 	Identifier \"My Mouse\"
 	Driver \"libinput\"
@@ -86,7 +86,7 @@ sudo sh -c "echo 'Section \"InputClass\"
 EndSection' > /etc/X11/xorg.conf.d/50-mouse-acceleration.conf"
 
 # nm-dispatcher-resolv.conf
-pacaur --needed --noconfirm -Syu git networkmanager-openvpn
+pacaur --needed --noconfirm --noedit -Syu git networkmanager-openvpn
 git clone https://github.com/polygamma/nm-dispatcher-resolv.conf.git
 cd nm-dispatcher-resolv.conf/
 makepkg -si --needed --noconfirm
@@ -94,7 +94,7 @@ cd ..
 sudo rm -r nm-dispatcher-resolv.conf/
 
 # ufw
-pacaur --needed --noconfirm -Syu ufw
+pacaur --needed --noconfirm --noedit -Syu ufw
 sudo ufw default deny
 sudo ufw limit ssh
 sudo ufw --force enable
@@ -104,7 +104,7 @@ sudo systemctl enable ufw
 sudo timedatectl set-ntp true
 
 # ssh
-pacaur --needed --noconfirm -Syu wget openssh
+pacaur --needed --noconfirm --noedit -Syu wget openssh
 wget https://pastebin.com/raw/yD2g3ZXv
 mkdir -p ~/.ssh
 chmod 700 ~/.ssh
@@ -115,7 +115,7 @@ sudo sh -c "sed -i '/^[ ]*[#]*[ ]*PermitRootLogin[ ]\+/s/^.*$/PermitRootLogin no
 sudo systemctl enable sshd
 
 # needed things
-pacaur --needed --noconfirm -Syu bash-completion ntfs-3g android-tools android-udev gedit file-roller unrar gnome-tweak-tool plank dkms linux-headers ttf-google-fonts-git google-chrome paper-gtk-theme-git paper-icon-theme-git jdk8-openjdk keepassx2 rsync dotpac
+pacaur --needed --noconfirm --noedit -Syu bash-completion ntfs-3g android-tools android-udev gedit file-roller unrar gnome-tweak-tool plank dkms linux-headers ttf-google-fonts-git google-chrome paper-gtk-theme-git paper-icon-theme-git jdk8-openjdk keepassx2 rsync dotpac
 sudo gpasswd -a $USER adbusers
 mkdir -p ~/.config/autostart
 chmod 700 ~/.config
