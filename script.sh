@@ -114,6 +114,17 @@ sudo sh -c "sed -i '/^[ ]*[#]*[ ]*PasswordAuthentication[ ]\+/s/^.*$/PasswordAut
 sudo sh -c "sed -i '/^[ ]*[#]*[ ]*PermitRootLogin[ ]\+/s/^.*$/PermitRootLogin no/' /etc/ssh/sshd_config"
 sudo systemctl enable sshd
 
+# swapfile
+grep "none[ ]\+swap[ ]\+defaults" /etc/fstab >/dev/null
+if [ "$?" -eq 1 ]
+then
+	sudo fallocate -l 4G /swapfile
+	sudo chmod 600 /swapfile
+	sudo mkswap /swapfile
+	sudo swapon /swapfile
+	sudo sh -c "echo '/swapfile none swap defaults 0 0' >> /etc/fstab"
+fi
+
 # needed things
 pacaur --needed --noconfirm --noedit -Syu bash-completion ntfs-3g android-tools android-udev gedit file-roller unrar gnome-tweak-tool plank dkms linux-headers ttf-google-fonts-git google-chrome paper-gtk-theme-git paper-icon-theme-git jdk8-openjdk keepassx2 rsync dotpac
 sudo gpasswd -a $USER adbusers
