@@ -35,8 +35,9 @@ sudo reflector --save /etc/pacman.d/mirrorlist --sort rate --age 1 --country Ger
 pacaur --noconfirm --noedit -Syyu
 
 # xorg + gnome
-pacaur --needed --noconfirm --noedit -Syu xorg-server gnome gdm
+pacaur --needed --noconfirm --noedit -Syu xorg-server gnome gdm networkmanager
 sudo systemctl enable gdm
+sudo systemctl enable NetworkManager
 
 # nvidia
 pacaur --needed --noconfirm --noedit -Syu nvidia-dkms lib32-nvidia-utils dkms linux-headers nvidia-settings
