@@ -126,7 +126,7 @@ then
 fi
 
 # needed things
-pacaur --needed --noconfirm --noedit -Syu bash-completion ntfs-3g android-tools android-udev gedit file-roller unrar gnome-tweak-tool plank dkms linux-headers ttf-google-fonts-git google-chrome paper-gtk-theme-git paper-icon-theme-git jdk8-openjdk keepassx2 rsync dotpac
+pacaur --needed --noconfirm --noedit -Syu bash-completion ntfs-3g android-tools android-udev gedit file-roller unrar gnome-tweak-tool plank dkms linux-headers ttf-google-fonts-git google-chrome paper-gtk-theme-git paper-icon-theme-git jdk keepassx2 rsync dotpac
 sudo gpasswd -a $USER adbusers
 mkdir -p ~/.config/autostart
 chmod 700 ~/.config
