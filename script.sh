@@ -133,7 +133,7 @@ sudo gpasswd -a $USER adbusers
 # sublime
 pacaur --needed --noconfirm --noedit -Syu curl
 curl -O https://download.sublimetext.com/sublimehq-pub.gpg && sudo pacman-key --add sublimehq-pub.gpg && sudo pacman-key --lsign-key 8A8F901A && rm sublimehq-pub.gpg
-grep "[sublime-text]" /etc/pacman.conf >/dev/null
+grep "\[sublime-text\]" /etc/pacman.conf >/dev/null
 if [ "$?" -eq 1 ]
 then
     echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | sudo tee -a /etc/pacman.conf
