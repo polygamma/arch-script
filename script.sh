@@ -24,7 +24,7 @@ sudo sh -c "sed -i '/^[ ]*BUILDENV=/s/!ccache/ccache/' /etc/makepkg.conf"
 grep "^[ ]*export PATH=\"/usr/lib/ccache/bin/:\$PATH\"" ~/.bashrc >/dev/null
 if [ "$?" -eq 1 ]
 then
-	echo "export PATH=\"/usr/lib/ccache/bin/:\$PATH\"" >> ~/.bashrc
+    echo "export PATH=\"/usr/lib/ccache/bin/:\$PATH\"" >> ~/.bashrc
 fi
 sudo sh -c "sed -i '/MAKEFLAGS=/s/^.*$/MAKEFLAGS=\"-j\$(nproc)\"/' /etc/makepkg.conf"
 sudo sh -c "sed -i '/PKGEXT=/s/^.*$/PKGEXT=\".pkg.tar\"/' /etc/makepkg.conf"
@@ -49,7 +49,7 @@ pacaur --needed --noconfirm --noedit -Syu mesa lib32-mesa xf86-video-intel
 interfaces=$(ip link | sed -n "/^[0-9]\+: \(ens\|eno\|enp\|wl\)[a-zA-Z0-9]\+:.*$/s/^[0-9]\+: \([a-zA-Z0-9]\+\):.*$/\1/p")
 toecho="net.ipv6.conf.all.disable_ipv6 = 1\n"
 for i in $interfaces; do
-	toecho+="net.ipv6.conf.$i.disable_ipv6 = 1\n"
+    toecho+="net.ipv6.conf.$i.disable_ipv6 = 1\n"
 done
 sudo sh -c "echo -e '$toecho' > /etc/sysctl.d/40-ipv6.conf"
 sudo sh -c "sed -i 's/^[ ]*::1/#::1/' /etc/hosts"
@@ -57,33 +57,33 @@ sudo sh -c "sed -i 's/^[ ]*keyserver[ ]\+.*$/keyserver hkp:\/\/ipv4.pool.sks-key
 grep "^[ ]*noipv6rs[ ]*$" /etc/dhcpcd.conf >/dev/null
 if [ "$?" -eq 1 ]
 then
-	sudo sh -c "echo 'noipv6rs' >> /etc/dhcpcd.conf"
+    sudo sh -c "echo 'noipv6rs' >> /etc/dhcpcd.conf"
 fi
 grep "^[ ]*noipv6[ ]*$" /etc/dhcpcd.conf >/dev/null
 if [ "$?" -eq 1 ]
 then
-	sudo sh -c "echo 'noipv6' >> /etc/dhcpcd.conf"
+    sudo sh -c "echo 'noipv6' >> /etc/dhcpcd.conf"
 fi
 
 # nano environment variable
 grep "^[ ]*export EDITOR=\"/usr/bin/nano\"" ~/.bashrc >/dev/null
 if [ "$?" -eq 1 ]
 then
-	echo "export EDITOR=\"/usr/bin/nano\"" >> ~/.bashrc
+    echo "export EDITOR=\"/usr/bin/nano\"" >> ~/.bashrc
 fi
 sudo sh -c "grep '^[ ]*Defaults[ ]\+env_keep[ ]*+=[ ]*\"[ ]*EDITOR[ ]*\"' /etc/sudoers >/dev/null"
 if [ "$?" -eq 1 ]
 then
-	echo 'Defaults env_keep += "EDITOR"' | sudo EDITOR='tee -a' visudo
+    echo 'Defaults env_keep += "EDITOR"' | sudo EDITOR='tee -a' visudo
 fi
 
 # mouse acceleration disabled with libinput
 pacaur --needed --noconfirm --noedit -Syu libinput xf86-input-libinput xorg-xinput
 sudo sh -c "echo 'Section \"InputClass\"
-	Identifier \"My Mouse\"
-	Driver \"libinput\"
-	MatchIsPointer \"yes\"
-	Option \"AccelProfile\" \"flat\"
+    Identifier \"My Mouse\"
+    Driver \"libinput\"
+    MatchIsPointer \"yes\"
+    Option \"AccelProfile\" \"flat\"
 EndSection' > /etc/X11/xorg.conf.d/50-mouse-acceleration.conf"
 
 # nm-dispatcher-resolv.conf
@@ -119,11 +119,11 @@ sudo systemctl enable sshd
 grep "none[ ]\+swap[ ]\+defaults" /etc/fstab >/dev/null
 if [ "$?" -eq 1 ]
 then
-	sudo fallocate -l 4G /swapfile
-	sudo chmod 600 /swapfile
-	sudo mkswap /swapfile
-	sudo swapon /swapfile
-	sudo sh -c "echo '/swapfile none swap defaults 0 0' >> /etc/fstab"
+    sudo fallocate -l 4G /swapfile
+    sudo chmod 600 /swapfile
+    sudo mkswap /swapfile
+    sudo swapon /swapfile
+    sudo sh -c "echo '/swapfile none swap defaults 0 0' >> /etc/fstab"
 fi
 
 # needed things
