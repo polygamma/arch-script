@@ -127,5 +127,5 @@ then
 fi
 
 # needed things
-pacaur --needed --noconfirm --noedit -Syu bash-completion ntfs-3g android-tools android-udev file-roller unrar gnome-tweak-tool dkms linux-headers ttf-google-fonts-git google-chrome jdk keepassx2 rsync dotpac downgrader
+pacaur --needed --noconfirm --noedit -Syu bash-completion ntfs-3g android-tools android-udev file-roller unrar gnome-tweak-tool dkms linux-headers ttf-google-fonts-git google-chrome jdk keepassx2 rsync dotpac downgrader gnome-shell-extension-dash-to-dock
 sudo gpasswd -a $USER adbusers
