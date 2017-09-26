@@ -126,6 +126,12 @@ then
     sudo sh -c "echo '/swapfile none swap defaults 0 0' >> /etc/fstab"
 fi
 
-# needed things
+# miscellaneous
 pacaur --needed --noconfirm --noedit -Syu bash-completion ntfs-3g android-tools android-udev file-roller unrar gnome-tweak-tool dkms linux-headers ttf-google-fonts-git google-chrome jdk keepassx2 rsync dotpac downgrader gnome-shell-extension-dash-to-dock
 sudo gpasswd -a $USER adbusers
+
+# sublime
+pacaur --needed --noconfirm --noedit -Syu curl
+curl -O https://download.sublimetext.com/sublimehq-pub.gpg && sudo pacman-key --add sublimehq-pub.gpg && sudo pacman-key --lsign-key 8A8F901A && rm sublimehq-pub.gpg
+echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | sudo tee -a /etc/pacman.conf
+pacaur --needed --noconfirm --noedit -Syu sublime-text
