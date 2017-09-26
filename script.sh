@@ -139,3 +139,15 @@ then
     echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | sudo tee -a /etc/pacman.conf
 fi
 pacaur --needed --noconfirm --noedit -Syu sublime-text
+
+# numix theme
+pacaur --needed --noconfirm --noedit -Syu wget
+wget https://dl.opendesktop.org/api/files/download/id/1490687283/Numix-Pack_0.4.6.1.tar.xz
+tar -xvf Numix-Pack_0.4.6.1.tar.xz
+cd Numix-Pack_0.4.6.1/
+cp -r .icons ~
+cp -r .local ~
+cp -r .themes ~
+cd ..
+rm -r Numix-Pack_0.4.6.1
+rm -r Numix-Pack_0.4.6.1.tar.xz
