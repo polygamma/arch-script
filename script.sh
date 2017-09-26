@@ -127,7 +127,7 @@ then
 fi
 
 # miscellaneous
-pacaur --needed --noconfirm --noedit -Syu bash-completion ntfs-3g android-tools android-udev file-roller unrar gnome-tweak-tool dkms linux-headers ttf-google-fonts-git google-chrome jdk keepassx2 rsync dotpac downgrader gnome-shell-extension-dash-to-dock
+pacaur --needed --noconfirm --noedit -Syu bash-completion ntfs-3g android-tools android-udev file-roller unrar gnome-tweak-tool dkms linux-headers ttf-google-fonts-git google-chrome jdk keepassx2 rsync dotpac downgrader openconnect networkmanager-openconnect gnome-shell-extension-dash-to-dock
 sudo gpasswd -a $USER adbusers
 
 # sublime
@@ -138,7 +138,7 @@ if [ "$?" -eq 1 ]
 then
     echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | sudo tee -a /etc/pacman.conf
 fi
-pacaur --needed --noconfirm --noedit -Syu sublime-text
+pacaur --needed --noconfirm --noedit -Syyu sublime-text
 
 # numix theme
 pacaur --needed --noconfirm --noedit -Syu wget
