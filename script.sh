@@ -6,7 +6,7 @@ sudo pacman -Syy
 
 # pacaur
 sudo pacman --needed --noconfirm -Syu git
-gpg --keyserver hkp://ipv4.pool.sks-keyservers.net:11371 --recv-keys 1EB2638FF56C0C53
+gpg --keyserver hkp://ipv4.pool.sks-keyservers.net --recv-keys 1EB2638FF56C0C53
 git clone https://aur.archlinux.org/cower.git
 cd cower/
 makepkg -si --needed --noconfirm
