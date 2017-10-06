@@ -35,7 +35,7 @@ sudo reflector --save /etc/pacman.d/mirrorlist --sort rate --age 1 --country Ger
 pacaur --noconfirm --noedit -Syyu
 
 # xorg + gnome
-pacaur --needed --noconfirm --noedit -Syu xorg-server gnome gdm networkmanager gnome-shell-extension-dash-to-dock
+pacaur --needed --noconfirm --noedit -Syu xorg-server gnome gdm networkmanager gnome-shell-extension-dash-to-dock file-roller unrar gnome-tweak-tool
 sudo systemctl enable gdm
 sudo systemctl enable NetworkManager
 gsettings set org.gnome.shell enabled-extensions "['user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com']"
@@ -153,7 +153,7 @@ then
 fi
 
 # miscellaneous
-pacaur --needed --noconfirm --noedit -Syu bash-completion asp net-tools ntfs-3g android-tools android-udev file-roller unrar gnome-tweak-tool dkms linux-headers ttf-google-fonts-git firefox-beta-bin woeusb-git jdk keepassx2 rsync dotpac downgrader openconnect networkmanager-openconnect filezilla intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre pycharm-professional clion clion-cmake clion-gdb clion-jre phpstorm phpstorm-jre smartgit
+pacaur --needed --noconfirm --noedit -Syu bash-completion asp net-tools ntfs-3g android-tools android-udev dkms linux-headers ttf-google-fonts-git firefox-beta-bin woeusb-git jdk keepassx2 rsync dotpac downgrader openconnect networkmanager-openconnect filezilla intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre pycharm-professional clion clion-cmake clion-gdb clion-jre phpstorm phpstorm-jre smartgit
 sudo gpasswd -a $USER adbusers
 
 # sublime
