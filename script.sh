@@ -64,6 +64,10 @@ gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
 gsettings set org.gnome.Terminal.Legacy.Settings new-terminal-mode "tab"
 gsettings set org.gnome.Terminal.Legacy.Settings theme-variant "dark"
 gsettings set org.gnome.nautilus.icon-view default-zoom-level "small"
+gsettings set org.gnome.desktop.peripherals.touchpad two-finger-scrolling-enabled false
+gsettings set org.gnome.desktop.peripherals.touchpad edge-scrolling-enabled true
+gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
+gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
 
 # nvidia
 pacaur --needed --noconfirm --noedit -Syu nvidia-dkms lib32-nvidia-utils dkms linux-headers nvidia-settings
