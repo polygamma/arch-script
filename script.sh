@@ -168,10 +168,11 @@ if [ "$?" -eq 1 ]
 then
     echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | sudo tee -a /etc/pacman.conf
 fi
+pacaur -Syy
+pacaur --needed --noconfirm --noedit -Syu sublime-text
 wget https://pastebin.com/raw/n64DScny
 install -Dm700 n64DScny "$HOME/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"
 rm n64DScny
-pacaur --needed --noconfirm --noedit -Syyu sublime-text
 
 # numix theme
 pacaur --needed --noconfirm --noedit -Syu wget
