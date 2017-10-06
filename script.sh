@@ -61,6 +61,8 @@ gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type "no
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type "nothing"
 gsettings set org.gnome.settings-daemon.plugins.power idle-dim false
 gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
+gsettings set org.gnome.Terminal.Legacy.Settings new-terminal-mode "tab"
+gsettings set org.gnome.Terminal.Legacy.Settings theme-variant "dark"
 
 # nvidia
 pacaur --needed --noconfirm --noedit -Syu nvidia-dkms lib32-nvidia-utils dkms linux-headers nvidia-settings
