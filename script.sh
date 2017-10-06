@@ -47,6 +47,13 @@ gsettings set org.gnome.shell.extensions.dash-to-dock multi-monitor true
 gsettings set org.gnome.shell.extensions.dash-to-dock require-pressure-to-show false
 gsettings set org.gnome.shell.extensions.dash-to-dock show-delay "0"
 gsettings set org.gnome.shell.extensions.dash-to-dock show-show-apps-button false
+gsettings set org.gnome.desktop.peripherals.mouse accel-profile "flat"
+gsettings set org.gnome.desktop.calendar show-weekdate true
+gsettings set org.gnome.desktop.interface clock-show-date true
+gsettings set org.gnome.desktop.interface clock-show-seconds true
+gsettings set org.gnome.shell.overrides dynamic-workspaces false
+gsettings set org.gnome.desktop.wm.preferences num-workspaces "1"
+gsettings set org.gnome.desktop.wm.preferences button-layout "appmenu:minimize,maximize,close"
 
 # nvidia
 pacaur --needed --noconfirm --noedit -Syu nvidia-dkms lib32-nvidia-utils dkms linux-headers nvidia-settings
