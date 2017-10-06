@@ -60,6 +60,7 @@ gsettings set org.gnome.desktop.session idle-delay "0"
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type "nothing"
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type "nothing"
 gsettings set org.gnome.settings-daemon.plugins.power idle-dim false
+gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
 
 # nvidia
 pacaur --needed --noconfirm --noedit -Syu nvidia-dkms lib32-nvidia-utils dkms linux-headers nvidia-settings
