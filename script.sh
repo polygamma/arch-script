@@ -38,6 +38,7 @@ pacaur --noconfirm --noedit -Syyu
 pacaur --needed --noconfirm --noedit -Syu xorg-server gnome gdm networkmanager gnome-shell-extension-dash-to-dock
 sudo systemctl enable gdm
 sudo systemctl enable NetworkManager
+gsettings set org.gnome.shell enabled-extensions "['user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com']"
 gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink true
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position "BOTTOM"
 gsettings set org.gnome.shell.extensions.dash-to-dock hide-delay "0"
@@ -159,3 +160,6 @@ cp -r .themes ~
 cd ..
 rm -r Numix-Pack_0.4.6.1
 rm -r Numix-Pack_0.4.6.1.tar.xz
+gsettings set org.gnome.shell.extensions.user-theme name "Numix"
+gsettings set org.gnome.desktop.interface gtk-theme "Numix"
+gsettings set org.gnome.desktop.interface icon-theme "PlataroNumix"
