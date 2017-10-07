@@ -174,17 +174,8 @@ wget https://pastebin.com/raw/n64DScny
 install -Dm700 n64DScny "$HOME/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"
 rm n64DScny
 
-# numix theme
-pacaur --needed --noconfirm --noedit -Syu wget
-wget https://dl.opendesktop.org/api/files/download/id/1490687283/Numix-Pack_0.4.6.1.tar.xz
-tar -xvf Numix-Pack_0.4.6.1.tar.xz
-cd Numix-Pack_0.4.6.1/
-cp -r .icons ~
-cp -r .local ~
-cp -r .themes ~
-cd ..
-rm -r Numix-Pack_0.4.6.1
-rm -r Numix-Pack_0.4.6.1.tar.xz
-gsettings set org.gnome.shell.extensions.user-theme name "Numix"
-gsettings set org.gnome.desktop.interface gtk-theme "Numix"
-gsettings set org.gnome.desktop.interface icon-theme "PlataroNumix"
+# themes
+pacaur --needed --noconfirm --noedit -Syu paper-icon-theme-git arc-gtk-theme
+gsettings set org.gnome.shell.extensions.user-theme name "Arc"
+gsettings set org.gnome.desktop.interface gtk-theme "Arc"
+gsettings set org.gnome.desktop.interface icon-theme "Paper"
