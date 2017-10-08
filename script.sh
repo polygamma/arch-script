@@ -35,18 +35,10 @@ sudo reflector --save /etc/pacman.d/mirrorlist --sort rate --age 1 --country Ger
 pacaur --noconfirm --noedit -Syyu
 
 # xorg + gnome
-pacaur --needed --noconfirm --noedit -Syu xorg-server gnome gdm networkmanager gnome-shell-extension-dash-to-dock file-roller unrar gnome-tweak-tool
+pacaur --needed --noconfirm --noedit -Syu xorg-server gnome gdm networkmanager file-roller unrar gnome-tweak-tool
 sudo systemctl enable gdm
 sudo systemctl enable NetworkManager
-gsettings set org.gnome.shell enabled-extensions "['user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com']"
-gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink true
-gsettings set org.gnome.shell.extensions.dash-to-dock dock-position "BOTTOM"
-gsettings set org.gnome.shell.extensions.dash-to-dock hide-delay "0"
-gsettings set org.gnome.shell.extensions.dash-to-dock hot-keys false
-gsettings set org.gnome.shell.extensions.dash-to-dock multi-monitor true
-gsettings set org.gnome.shell.extensions.dash-to-dock require-pressure-to-show false
-gsettings set org.gnome.shell.extensions.dash-to-dock show-delay "0"
-gsettings set org.gnome.shell.extensions.dash-to-dock show-show-apps-button false
+gsettings set org.gnome.shell enabled-extensions "['user-theme@gnome-shell-extensions.gcampax.github.com']"
 gsettings set org.gnome.desktop.peripherals.mouse accel-profile "flat"
 gsettings set org.gnome.desktop.calendar show-weekdate true
 gsettings set org.gnome.desktop.interface clock-show-date true
