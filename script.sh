@@ -35,7 +35,7 @@ sudo reflector --save /etc/pacman.d/mirrorlist --sort rate --age 1 --country Ger
 pacaur --noconfirm --noedit -Syyu
 
 # xorg + gnome
-pacaur --needed --noconfirm --noedit -Syu xorg-server gnome gdm networkmanager file-roller unrar gnome-tweak-tool
+pacaur --needed --noconfirm --noedit -Syu xorg-server gnome gdm networkmanager file-roller unrar plank gnome-tweak-tool
 sudo systemctl enable gdm
 sudo systemctl enable NetworkManager
 gsettings set org.gnome.shell enabled-extensions "['user-theme@gnome-shell-extensions.gcampax.github.com']"
@@ -60,6 +60,10 @@ gsettings set org.gnome.desktop.peripherals.touchpad two-finger-scrolling-enable
 gsettings set org.gnome.desktop.peripherals.touchpad edge-scrolling-enabled true
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
+mkdir -p ~/.config/autostart
+chmod 700 ~/.config
+chmod 755 ~/.config/autostart
+ln -sf /usr/share/applications/plank.desktop ~/.config/autostart/plank.desktop
 
 # nvidia
 pacaur --needed --noconfirm --noedit -Syu nvidia-dkms lib32-nvidia-utils dkms linux-headers nvidia-settings
@@ -171,3 +175,4 @@ pacaur --needed --noconfirm --noedit -Syu paper-icon-theme-git arc-gtk-theme
 gsettings set org.gnome.shell.extensions.user-theme name "Arc"
 gsettings set org.gnome.desktop.interface gtk-theme "Arc"
 gsettings set org.gnome.desktop.interface icon-theme "Paper"
+gsettings set org.gnome.desktop.interface cursor-theme "Paper"
