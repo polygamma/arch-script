@@ -15,8 +15,8 @@ git clone https://aur.archlinux.org/pacaur.git
 cd pacaur/
 makepkg -si --needed --noconfirm
 cd ..
-sudo rm -r pacaur/
-sudo rm -r cower/
+rm -rf pacaur/
+rm -rf cower/
 
 # makepkg
 pacaur --needed --noconfirm --noedit -Syu ccache
