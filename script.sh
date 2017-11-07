@@ -176,3 +176,10 @@ gsettings set org.gnome.shell.extensions.user-theme name "Arc"
 gsettings set org.gnome.desktop.interface gtk-theme "Arc"
 gsettings set org.gnome.desktop.interface icon-theme "Paper"
 gsettings set org.gnome.desktop.interface cursor-theme "Paper"
+
+# signal
+git clone https://github.com/polygamma/signal-git-pkgbuild.git
+cd signal-git-pkgbuild/
+makepkg -si --needed --noconfirm
+cd ..
+rm -rf signal-git-pkgbuild/
