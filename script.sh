@@ -26,7 +26,7 @@ sudo sh -c "sed -i '/PKGEXT=/s/^.*$/PKGEXT=\".pkg.tar\"/' /etc/makepkg.conf"
 # mirrors
 aurman --needed --noconfirm --noedit -Syu reflector
 sudo reflector --save /etc/pacman.d/mirrorlist --sort rate --age 1 --country Germany --latest 10 --score 10 --number 5 --protocol http
-sudo pacman --noconfirm --noedit -Syyu
+sudo pacman --noconfirm -Syyu
 
 # xorg + gnome
 aurman --needed --noconfirm --noedit -Syu xorg-server gnome gdm networkmanager file-roller unrar plank gnome-tweak-tool
