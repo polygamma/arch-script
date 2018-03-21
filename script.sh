@@ -163,6 +163,11 @@ aurman --needed --noconfirm --noedit -Syu sublime-text
 wget https://pastebin.com/raw/n64DScny
 install -Dm700 n64DScny "$HOME/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"
 rm n64DScny
+grep "^[ ]*export VISUAL=\"subl\"" ~/.bashrc >/dev/null
+if [ "$?" -eq 1 ]
+then
+    echo "export VISUAL=\"subl\"" >> ~/.bashrc
+fi
 
 # themes
 aurman --needed --noconfirm --noedit -Syu paper-icon-theme-git arc-gtk-theme
