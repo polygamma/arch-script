@@ -147,7 +147,7 @@ then
 fi
 
 # miscellaneous
-aurman --needed --noconfirm --noedit -Syu bash-completion asp net-tools ntfs-3g android-tools android-udev dkms linux-headers ttf-google-fonts-git google-chrome woeusb-git jdk8-openjdk keepassx2 rsync dotpac downgrader openconnect networkmanager-openconnect filezilla intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre pycharm-professional clion clion-cmake clion-gdb clion-jre phpstorm phpstorm-jre android-studio gitkraken
+aurman --needed --noconfirm --noedit -Syu bash-completion asp lxsplit net-tools ntfs-3g android-tools android-udev dkms linux-headers ttf-google-fonts-git google-chrome woeusb-git jdk8-openjdk keepassx2 rsync dotpac downgrader openconnect networkmanager-openconnect filezilla intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre pycharm-professional clion clion-cmake clion-gdb clion-jre phpstorm phpstorm-jre android-studio gitkraken
 sudo gpasswd -a $USER adbusers
 
 # sublime
