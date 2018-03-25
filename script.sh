@@ -29,7 +29,7 @@ sudo reflector --save /etc/pacman.d/mirrorlist --sort rate --age 1 --country Ger
 sudo pacman --noconfirm -Syyu
 
 # xorg + gnome
-aurman --needed --noconfirm --noedit -Syu xorg-server gnome gdm networkmanager file-roller unrar plank gnome-tweak-tool
+aurman --needed --noconfirm --noedit -Syu xorg-server gnome gdm networkmanager file-roller unrar plank gnome-tweaks
 sudo systemctl enable gdm
 sudo systemctl enable NetworkManager
 gsettings set org.gnome.shell enabled-extensions "['user-theme@gnome-shell-extensions.gcampax.github.com']"
