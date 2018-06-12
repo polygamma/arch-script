@@ -4,8 +4,15 @@
 sudo sh -c "sed -i '/\[multilib\]/,/Include/s/^[ ]*#//' /etc/pacman.conf"
 sudo pacman -Syy
 
-# aurman
+# expac-git for aurman
 sudo pacman --needed --noconfirm -Syu git
+git clone https://aur.archlinux.org/expac-git.git
+cd expac-git/
+makepkg -si --needed --noconfirm
+cd ..
+rm -rf expac-git/
+
+# aurman
 git clone https://aur.archlinux.org/aurman-git.git
 cd aurman-git/
 makepkg -si --needed --noconfirm
