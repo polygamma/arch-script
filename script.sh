@@ -19,6 +19,10 @@ makepkg -si --needed --noconfirm
 cd ..
 rm -rf aurman-git/
 
+# aurman config
+mkdir -p ~/.config/aurman/
+printf "[miscellaneous]\nshow_changes\ndo_everything\nuse_ask\nkeyserver=hkp://ipv4.pool.sks-keyservers.net:11371\n" > ~/.config/aurman/aurman_config
+
 # makepkg
 aurman --needed --noconfirm --noedit -Syu ccache
 sudo sh -c "sed -i '/^[ ]*BUILDENV=/s/!ccache/ccache/' /etc/makepkg.conf"
