@@ -12,6 +12,11 @@ makepkg -si --needed --noconfirm
 cd ..
 rm -rf expac-git/
 
+# PGP key for aurman
+wget https://github.com/polygamma.gpg
+gpg --import polygamma.gpg
+rm polygamma.gpg
+
 # aurman
 git clone https://aur.archlinux.org/aurman-git.git
 cd aurman-git/
