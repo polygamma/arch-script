@@ -4,14 +4,6 @@
 sudo sh -c "sed -i '/\[multilib\]/,/Include/s/^[ ]*#//' /etc/pacman.conf"
 sudo pacman -Syy
 
-# expac-git for aurman
-sudo pacman --needed --noconfirm -Syu git
-git clone https://aur.archlinux.org/expac-git.git
-cd expac-git/
-makepkg -si --needed --noconfirm
-cd ..
-rm -rf expac-git/
-
 # PGP key for aurman
 wget https://github.com/polygamma.gpg
 gpg --import polygamma.gpg
