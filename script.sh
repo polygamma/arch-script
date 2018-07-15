@@ -18,7 +18,7 @@ rm -rf aurman-git/
 
 # aurman config
 mkdir -p ~/.config/aurman/
-printf "[miscellaneous]\nshow_changes\ndo_everything\nuse_ask\nkeyserver=hkp://ipv4.pool.sks-keyservers.net:11371\n" > ~/.config/aurman/aurman_config
+printf "[miscellaneous]\ndo_everything\nuse_ask\nkeyserver=hkp://ipv4.pool.sks-keyservers.net:11371\n" > ~/.config/aurman/aurman_config
 
 # makepkg
 aurman --needed --noconfirm --noedit --skip_news -Syu ccache
@@ -186,3 +186,6 @@ gsettings set org.gnome.desktop.interface cursor-theme "Paper"
 
 # signal
 aurman --needed --noconfirm --noedit --skip_news -Syu signal-desktop-bin
+
+# aurman config final
+printf "[miscellaneous]\nshow_changes\ndo_everything\nuse_ask\nkeyserver=hkp://ipv4.pool.sks-keyservers.net:11371\n" > ~/.config/aurman/aurman_config
